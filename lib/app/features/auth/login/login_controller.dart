@@ -1,11 +1,10 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:fouadtest/app/features/auth/login/login_services.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
-  LoginServices _loginServices = LoginServices();
+  final LoginServices _loginServices = LoginServices();
 
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();

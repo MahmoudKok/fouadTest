@@ -38,11 +38,11 @@ class HomeActionSection extends StatelessWidget {
             text: 'Change Password',
             onTap: () {
               TextEditingController password = TextEditingController();
-              TextEditingController password_confirm = TextEditingController();
-              TextEditingController current_password = TextEditingController();
+              TextEditingController passwordConfirm = TextEditingController();
+              TextEditingController currentPassword = TextEditingController();
               final formKey = GlobalKey<FormState>();
               changePasswordDialog(
-                  formKey, password, password_confirm, current_password);
+                  formKey, password, passwordConfirm, currentPassword);
             }),
         HomeActionCard(
             text: 'Delete Account',
@@ -151,8 +151,8 @@ class HomeActionSection extends StatelessWidget {
   Future<dynamic> changePasswordDialog(
       GlobalKey<FormState> formKey,
       TextEditingController password,
-      TextEditingController password_confirm,
-      TextEditingController current_password) {
+      TextEditingController passwordConfirm,
+      TextEditingController currentPassword) {
     return Get.defaultDialog(
       title: 'Change Password',
       titleStyle: TextStyle(
@@ -168,17 +168,17 @@ class HomeActionSection extends StatelessWidget {
                 controller: password,
                 label: 'Enter new password',
                 validator: (String? value) {
-                  if (value!.length <= 0) {
+                  if (value!.isEmpty) {
                     return 'Password must be at least 8 charcters';
                   }
-                  if (value!.isEmpty) {
+                  if (value.isEmpty) {
                     return 'Password can not be empty';
                   }
                 }).pSymmetric(
               vertical: 10.h,
             ),
             MainTextField(
-              controller: password_confirm,
+              controller: passwordConfirm,
               label: 'confirm password',
               validator: (value) {
                 if (value != password.text) {
@@ -194,13 +194,13 @@ class HomeActionSection extends StatelessWidget {
               },
             ).pSymmetric(vertical: 10.h),
             MainTextField(
-                controller: current_password,
+                controller: currentPassword,
                 label: 'Enter current password',
                 validator: (String? value) {
-                  if (value!.length <= 0) {
+                  if (value!.isEmpty) {
                     return 'Password must be at least 8 charcters';
                   }
-                  if (value!.isEmpty) {
+                  if (value.isEmpty) {
                     return 'Password can not be empty';
                   }
                 }).pSymmetric(vertical: 20.h),
@@ -218,8 +218,8 @@ class HomeActionSection extends StatelessWidget {
                   var result = await _controller.changePassword(
                       ChangePasswordModel(
                           password: password.text,
-                          password_confirm: password_confirm.text,
-                          current_password: current_password.text));
+                          password_confirm: passwordConfirm.text,
+                          current_password: currentPassword.text));
                   if (result is bool) {
                     EasyLoading.showSuccess('Password updated successfully');
                   } else {

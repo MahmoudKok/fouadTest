@@ -25,7 +25,7 @@ class AppRouter {
         name: AppPages.home, page: () => HomeScreen(), binding: HomeBinding()),
     GetPage(
         name: AppPages.updateProfile,
-        page: () => UpdateProfileScreen(),
+        page: () => const UpdateProfileScreen(),
         binding: UpdateProfileBinding()),
   ];
 }

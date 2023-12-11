@@ -16,7 +16,7 @@ class LoginForm extends StatelessWidget {
   LoginForm({
     super.key,
   });
-  LoginController _controller = Get.find<LoginController>();
+  final LoginController _controller = Get.find<LoginController>();
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +61,7 @@ class LoginForm extends StatelessWidget {
                         if (value.length < 8) {
                           return 'Password must be at least 8 charcters';
                         }
+                        return null;
                       },
                       decoration: InputDecoration(
                           hintText: 'Password',

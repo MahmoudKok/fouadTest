@@ -29,7 +29,7 @@ class UpdateProfileScreen extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back_ios_new_rounded,
             color: AppColors.white,
-            size: 25.sp,
+            size: 30.sp,
           ),
           onPressed: () {
             Get.back(result: Get.find<UpdateProfileController>().isUpdated);

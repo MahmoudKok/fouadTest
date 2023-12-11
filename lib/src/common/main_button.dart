@@ -5,7 +5,7 @@ import 'package:fouadtest/src/theme/app_colors.dart';
 import 'package:fouadtest/src/theme/fonts_family.dart';
 
 class MainButton extends StatelessWidget {
-  MainButton({
+  const MainButton({
     super.key,
     required this.onTap,
     this.width,

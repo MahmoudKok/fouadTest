@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeController extends GetxController {
-  HomeServices _services = HomeServices();
+  final HomeServices _services = HomeServices();
   SharedPreferences? pref;
 
   bool isDeleteOpen = false;
@@ -16,7 +16,6 @@ class HomeController extends GetxController {
 
   @override
   void onInit() async {
-    print('Hellllo');
     // TODO: implement onInit
     super.onInit();
   }

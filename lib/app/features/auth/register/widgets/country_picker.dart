@@ -1,5 +1,3 @@
-import 'package:country_calling_code_picker/country_code_picker.dart';
-import 'package:country_calling_code_picker/functions.dart';
 import 'package:country_pickers/country.dart';
 import 'package:country_pickers/country_picker_dropdown.dart';
 import 'package:country_pickers/utils/utils.dart';

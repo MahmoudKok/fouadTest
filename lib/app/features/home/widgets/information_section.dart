@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class InformationSection extends StatelessWidget {
-  InformationSection({super.key, this.pref});
+  const InformationSection({super.key, this.pref});
   final SharedPreferences? pref;
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class InformationSection extends StatelessWidget {
 }
 
 class InforCard extends StatelessWidget {
-  InforCard({
+  const InforCard({
     super.key,
     this.icon,
     this.text,

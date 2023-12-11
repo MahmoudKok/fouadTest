@@ -8,7 +8,6 @@ import 'package:fouadtest/src/helpers/extension.dart';
 import 'package:fouadtest/src/router/app_pages.dart';
 import 'package:get/get.dart';
 
-import 'package:pixel_perfect/pixel_perfect.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

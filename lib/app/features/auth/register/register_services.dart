@@ -4,12 +4,9 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:fouadtest/app/features/auth/register/models/register_model.dart';
 import 'package:fouadtest/src/helpers/functions.dart';
 import 'package:fouadtest/src/models/user_data.dart';
-import 'package:fouadtest/src/helpers/strings.dart';
 import 'package:fouadtest/src/network/excptions.dart';
 import 'package:fouadtest/src/network/server_config.dart';
-import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterService {
   checkInterNetConnection() async {

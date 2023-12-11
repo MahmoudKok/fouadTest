@@ -1,4 +1,3 @@
-import 'package:fouadtest/app/features/auth/register/register_controller.dart';
 import 'package:fouadtest/app/features/updateProfile/update_profile_controller.dart';
 import 'package:get/get.dart';
 

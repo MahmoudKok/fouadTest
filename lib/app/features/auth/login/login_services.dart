@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:fouadtest/src/helpers/functions.dart';
-import 'package:fouadtest/src/helpers/strings.dart';
 import 'package:fouadtest/src/models/user_data.dart';
 import 'package:fouadtest/src/network/excptions.dart';
 import 'package:fouadtest/src/network/server_config.dart';

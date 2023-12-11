@@ -4,7 +4,6 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:fouadtest/app/features/updateProfile/models/updateProfileModel.dart';
 import 'package:fouadtest/app/features/updateProfile/models/update_profile_response_model.dart';
 import 'package:fouadtest/src/helpers/strings.dart';
-import 'package:fouadtest/src/models/user_data.dart';
 import 'package:fouadtest/src/network/excptions.dart';
 import 'package:fouadtest/src/network/server_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -24,7 +23,6 @@ class UpdateProfileServices {
         await SharedPreferences.getInstance().then((value) {
           if (value.getString('token') != null) {
             token = value.getString('token')!;
-            print(token);
           } else {
             throw InternalException(message: Messages.INTERNAL_EXCEPTION);
           }
@@ -47,7 +45,6 @@ class UpdateProfileServices {
     } on FaildException catch (e) {
       return e.message;
     } catch (e) {
-      print('Yeeess');
       print(e);
     }
   }

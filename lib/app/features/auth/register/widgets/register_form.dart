@@ -4,19 +4,15 @@ import 'package:country_pickers/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fouadtest/app/features/auth/register/register_controller.dart';
-import 'package:fouadtest/app/features/welcome/widgets/constant_components.dart';
 import 'package:fouadtest/src/common/custum_textField.dart';
-import 'package:fouadtest/src/common/main_button.dart';
 import 'package:fouadtest/src/helpers/extension.dart';
-import 'package:fouadtest/src/router/app_pages.dart';
 import 'package:fouadtest/src/theme/app_colors.dart';
 import 'package:fouadtest/src/theme/fonts_family.dart';
 import 'package:get/get.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class RegisterForm extends StatelessWidget {
   RegisterForm({super.key});
-  RegisterController _controller = Get.find<RegisterController>();
+  final RegisterController _controller = Get.find<RegisterController>();
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -36,7 +32,6 @@ class RegisterForm extends StatelessWidget {
             child: PhoneFieldWithCountryPicker(
               controller: _controller.phoneNumber,
               onPick: (Country country) {
-                print(country.isoCode);
                 Get.find<RegisterController>().choseCountry(country);
               },
             )).pOnly(bottom: 18.h),
@@ -101,8 +96,7 @@ class PhoneFieldWithCountryPicker extends StatefulWidget {
   final onPick;
   final controller;
   const PhoneFieldWithCountryPicker(
-      {Key? key, this.onPick, required this.controller})
-      : super(key: key);
+      {super.key, this.onPick, required this.controller});
   @override
   _PhoneFieldWithCountryPickerState createState() =>
       _PhoneFieldWithCountryPickerState();

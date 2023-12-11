@@ -1,10 +1,7 @@
-import 'package:country_calling_code_picker/functions.dart';
 import 'package:country_pickers/country.dart';
 import 'package:flutter/material.dart';
 import 'package:fouadtest/app/features/auth/register/models/register_model.dart';
 import 'package:fouadtest/app/features/auth/register/register_services.dart';
-import 'package:fouadtest/src/helpers/strings.dart';
-import 'package:fouadtest/src/network/excptions.dart';
 import 'package:get/get.dart';
 
 class RegisterController extends GetxController {
@@ -22,8 +19,6 @@ class RegisterController extends GetxController {
 
   @override
   void onInit() async {
-    print("call onInit");
-
     super.onInit();
   }
 
@@ -49,7 +44,6 @@ class RegisterController extends GetxController {
         password: password.text,
         country_code: selctedCountry,
         password_confirm: passwordConfirm.text);
-    // print(information.toString());
     try {
       var response = await registerServices.registerUser(information);
       return response;

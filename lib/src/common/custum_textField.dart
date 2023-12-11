@@ -1,12 +1,10 @@
 import 'package:country_calling_code_picker/functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fouadtest/app/features/auth/register/register_controller.dart';
 import 'package:fouadtest/app/features/auth/register/widgets/country_picker.dart';
 import 'package:fouadtest/src/helpers/extension.dart';
 import 'package:fouadtest/src/theme/app_colors.dart';
 import 'package:fouadtest/src/theme/fonts_family.dart';
-import 'package:get/get.dart';
 
 class MainTextField extends StatelessWidget {
   const MainTextField(

@@ -14,34 +14,30 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PixelPerfect(
-      assetPath: 'assets/images/screens/home.jpg',
-      scale: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: AppColors.primary,
-          title: Text(
-            'Home Page',
-            style: TextStyle(
-              color: AppColors.white,
-              fontFamily: AppFontsFamily.alixadnria,
-              fontSize: 32.sp,
-              fontWeight: FontWeight.w600,
-            ),
-          ).pOnly(top: 12.h),
-        ),
-        body: Column(
-          children: [
-            InformationSection(pref: Get.find<HomeController>().pref).pOnly(
-              bottom: 30.h,
-              left: 24.w,
-              right: 24.w,
-            ),
-            HomeActionSection().pSymmetric(horizontal: 5.w),
-          ],
-        ).pSymmetric(vertical: 52.h),
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: AppColors.primary,
+        title: Text(
+          'Home Page',
+          style: TextStyle(
+            color: AppColors.white,
+            fontFamily: AppFontsFamily.alixadnria,
+            fontSize: 32.sp,
+            fontWeight: FontWeight.w600,
+          ),
+        ).pOnly(top: 12.h),
       ),
+      body: Column(
+        children: [
+          InformationSection(pref: Get.find<HomeController>().pref).pOnly(
+            bottom: 30.h,
+            left: 24.w,
+            right: 24.w,
+          ),
+          HomeActionSection().pSymmetric(horizontal: 5.w),
+        ],
+      ).pSymmetric(vertical: 52.h),
     );
   }
 }

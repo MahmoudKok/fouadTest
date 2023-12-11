@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fouadtest/app/features/home/home_controller.dart';
-import 'package:fouadtest/app/features/home/home_screen.dart';
 import 'package:fouadtest/app/features/welcome/welcome_screen.dart';
 import 'package:fouadtest/src/router/router.dart';
 import 'package:fouadtest/src/theme/app_colors.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
@@ -22,7 +20,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key, required this.pref}) : super(key: key);
+  const MyApp({super.key, required this.pref});
 
   final SharedPreferences pref;
 
@@ -46,13 +44,13 @@ class MyApp extends StatelessWidget {
             future: Get.find<HomeController>().fetchData(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
-                return WelcomeScreen();
+                return const WelcomeScreen();
               } else {
                 return Center(
                   child: SizedBox(
                       width: 100.sp,
                       height: 100.sp,
-                      child: CircularProgressIndicator()),
+                      child: const CircularProgressIndicator()),
                 );
               }
             },

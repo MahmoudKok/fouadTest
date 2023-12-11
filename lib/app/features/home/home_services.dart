@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:fouadtest/app/features/home/models/change_password_model.dart';
 import 'package:fouadtest/src/helpers/strings.dart';
@@ -21,7 +19,6 @@ class HomeServices {
         await SharedPreferences.getInstance().then((value) {
           if (value.getString('token') != null) {
             token = value.getString('token')!;
-            print(token);
           } else {
             throw InternalException(message: Messages.INTERNAL_EXCEPTION);
           }
@@ -58,7 +55,6 @@ class HomeServices {
         await SharedPreferences.getInstance().then((value) {
           if (value.getString('token') != null) {
             token = value.getString('token')!;
-            print(token);
           } else {
             throw InternalException(message: Messages.INTERNAL_EXCEPTION);
           }

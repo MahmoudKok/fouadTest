@@ -6,7 +6,6 @@ import 'package:fouadtest/src/models/user_data.dart';
 import 'package:fouadtest/app/features/auth/register/register_controller.dart';
 import 'package:fouadtest/app/features/auth/register/widgets/register_form.dart';
 import 'package:fouadtest/app/features/welcome/widgets/constant_components.dart';
-import 'package:fouadtest/src/common/custum_textField.dart';
 import 'package:fouadtest/src/common/main_button.dart';
 import 'package:fouadtest/src/common/up_image.dart';
 import 'package:fouadtest/src/helpers/extension.dart';
@@ -15,7 +14,6 @@ import 'package:fouadtest/src/router/app_pages.dart';
 import 'package:fouadtest/src/theme/app_colors.dart';
 import 'package:fouadtest/src/theme/fonts_family.dart';
 import 'package:get/get.dart';
-import 'package:pixel_perfect/pixel_perfect.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterScreen extends StatelessWidget {

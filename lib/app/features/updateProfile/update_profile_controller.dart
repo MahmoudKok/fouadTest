@@ -5,7 +5,7 @@ import 'package:fouadtest/app/features/updateProfile/update_profile_services.dar
 import 'package:get/get.dart';
 
 class UpdateProfileController extends GetxController {
-  UpdateProfileServices _services = UpdateProfileServices();
+  final UpdateProfileServices _services = UpdateProfileServices();
   TextEditingController name = TextEditingController();
   TextEditingController phone = TextEditingController();
   TextEditingController email = TextEditingController();

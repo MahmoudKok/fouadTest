@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fouadtest/src/helpers/extension.dart';
 import 'package:fouadtest/src/theme/app_colors.dart';
-import 'package:fouadtest/src/theme/app_image.dart';
 import 'package:fouadtest/src/theme/fonts_family.dart';
 
 class BottomPhase extends StatelessWidget {
