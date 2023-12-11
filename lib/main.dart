@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fouadtest/app/features/home/home_controller.dart';
+import 'package:fouadtest/app/features/home/home_screen.dart';
 import 'package:fouadtest/app/features/welcome/welcome_screen.dart';
 import 'package:fouadtest/src/router/router.dart';
 import 'package:fouadtest/src/theme/app_colors.dart';
@@ -44,7 +45,9 @@ class MyApp extends StatelessWidget {
             future: Get.find<HomeController>().fetchData(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
-                return const WelcomeScreen();
+                return pref.getString('token') != null
+                    ? HomeScreen()
+                    : const WelcomeScreen();
               } else {
                 return Center(
                   child: SizedBox(
