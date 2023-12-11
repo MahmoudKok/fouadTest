@@ -47,94 +47,7 @@ class HomeActionSection extends StatelessWidget {
         HomeActionCard(
             text: 'Delete Account',
             onTap: () async {
-              Get.defaultDialog(
-                  barrierDismissible: false,
-                  title: 'Delete account',
-                  titleStyle: TextStyle(
-                    color: AppColors.black,
-                    fontSize: 35.sp,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: AppFontsFamily.alixadnria,
-                  ),
-                  content: Text(
-                    'Are you sure you want to delete your account?',
-                    style: TextStyle(
-                      color: AppColors.black,
-                      fontSize: 35.sp,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: AppFontsFamily.alixadnria,
-                    ),
-                  ),
-                  confirm: GetBuilder<HomeController>(
-                      id: 'delete_account',
-                      init: HomeController(),
-                      builder: (_) {
-                        return Container(
-                          width: 140.w,
-                          height: 80.h,
-                          decoration: BoxDecoration(
-                            color: _controller.isDeleteOpen
-                                ? Colors.redAccent
-                                : AppColors.grey,
-                            borderRadius: BorderRadius.circular(12.r),
-                          ),
-                          child: _controller.isDeleteOpen
-                              ? MainButton(
-                                  width: 140.w,
-                                  height: 80.h,
-                                  color: Colors.redAccent,
-                                  onTap: () async {
-                                    try {
-                                      Get.back();
-                                      EasyLoading.show(dismissOnTap: true);
-                                      var result =
-                                          await _controller.deleteUserAccount();
-                                      if (result is bool) {
-                                        EasyLoading.showSuccess(
-                                            'Your account deleted successfully');
-                                        logoutUser();
-                                        await Future.delayed(
-                                            const Duration(seconds: 3));
-                                        Get.offAndToNamed(AppPages.welcome);
-                                      } else {
-                                        EasyLoading.showError(result);
-                                      }
-                                    } catch (e) {}
-                                  },
-                                  text: 'Confirm',
-                                )
-                              : Countdown(
-                                  onFinished: () {
-                                    _controller.openDeleteAccount();
-                                  },
-                                  seconds: 5,
-                                  build: (BuildContext context, double timer) {
-                                    return Center(
-                                      child: Text(
-                                        timer.toString(),
-                                        style: TextStyle(
-                                          color: AppColors.black,
-                                          fontSize: 35.sp,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: AppFontsFamily.alixadnria,
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                ),
-                        );
-                      }),
-                  cancel: MainButton(
-                    width: 140.w,
-                    height: 80.h,
-                    color: AppColors.black.withOpacity(0),
-                    textColor: AppColors.black,
-                    onTap: () {
-                      _controller.isDeleteOpen = false;
-                      Get.back();
-                    },
-                    text: 'Cancel',
-                  ));
+              deleteAccountDialog();
             }),
         HomeActionCard(
             text: 'Logout',
@@ -144,6 +57,95 @@ class HomeActionSection extends StatelessWidget {
             })
       ],
     );
+  }
+
+  Future<dynamic> deleteAccountDialog() {
+    return Get.defaultDialog(
+        barrierDismissible: false,
+        title: 'Delete account',
+        titleStyle: TextStyle(
+          color: AppColors.black,
+          fontSize: 35.sp,
+          fontWeight: FontWeight.bold,
+          fontFamily: AppFontsFamily.alixadnria,
+        ),
+        content: Text(
+          'Are you sure you want to delete your account?',
+          style: TextStyle(
+            color: AppColors.black,
+            fontSize: 35.sp,
+            fontWeight: FontWeight.bold,
+            fontFamily: AppFontsFamily.alixadnria,
+          ),
+        ),
+        confirm: GetBuilder<HomeController>(
+            id: 'delete_account',
+            init: HomeController(),
+            builder: (_) {
+              return Container(
+                width: 140.w,
+                height: 80.h,
+                decoration: BoxDecoration(
+                  color: _controller.isDeleteOpen
+                      ? Colors.redAccent
+                      : AppColors.grey,
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+                child: _controller.isDeleteOpen
+                    ? MainButton(
+                        width: 140.w,
+                        height: 80.h,
+                        color: Colors.redAccent,
+                        onTap: () async {
+                          try {
+                            Get.back();
+                            EasyLoading.show(dismissOnTap: true);
+                            var result = await _controller.deleteUserAccount();
+                            if (result is bool) {
+                              EasyLoading.showSuccess(
+                                  'Your account deleted successfully');
+                              logoutUser();
+                              await Future.delayed(const Duration(seconds: 3));
+                              Get.offAndToNamed(AppPages.welcome);
+                            } else {
+                              EasyLoading.showError(result);
+                            }
+                          } catch (e) {}
+                        },
+                        text: 'Confirm',
+                      )
+                    : Countdown(
+                        onFinished: () {
+                          _controller.openDeleteAccount();
+                        },
+                        seconds: 5,
+                        build: (BuildContext context, double timer) {
+                          return Center(
+                            child: Text(
+                              timer.toString(),
+                              style: TextStyle(
+                                color: AppColors.black,
+                                fontSize: 35.sp,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: AppFontsFamily.alixadnria,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+              );
+            }),
+        cancel: MainButton(
+          width: 140.w,
+          height: 80.h,
+          color: AppColors.black.withOpacity(0),
+          textColor: AppColors.black,
+          onTap: () {
+            _controller.isDeleteOpen = false;
+            Get.back();
+          },
+          text: 'Cancel',
+        ));
   }
 
   Future<dynamic> changePasswordDialog(
