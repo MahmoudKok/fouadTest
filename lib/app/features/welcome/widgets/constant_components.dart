@@ -31,16 +31,19 @@ class BottomPhase extends StatelessWidget {
               letterSpacing: 0,
               fontWeight: FontWeight.w400),
         ),
-        Text(
-          secondText,
-          style: TextStyle(
-              textBaseline: TextBaseline.alphabetic,
-              color: AppColors.primary,
-              fontFamily: AppFontsFamily.alixadnria,
-              decoration: withLine != null ? TextDecoration.underline : null,
-              fontSize: 22.5.sp,
-              letterSpacing: 0,
-              fontWeight: FontWeight.bold),
+        GestureDetector(
+          onTap: onTap,
+          child: Text(
+            secondText,
+            style: TextStyle(
+                textBaseline: TextBaseline.alphabetic,
+                color: AppColors.primary,
+                fontFamily: AppFontsFamily.alixadnria,
+                decoration: withLine != null ? TextDecoration.underline : null,
+                fontSize: 22.5.sp,
+                letterSpacing: 0,
+                fontWeight: FontWeight.bold),
+          ),
         ),
       ],
     );
