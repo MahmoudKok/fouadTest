@@ -12,9 +12,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences pref = await SharedPreferences.getInstance();
-  if (pref.getString('token') != null) {
-    Get.lazyPut(() => HomeController());
-  }
+  Get.lazyPut(() => HomeController());
+
   runApp(MyApp(
     pref: pref,
   ));

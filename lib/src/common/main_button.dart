@@ -41,13 +41,15 @@ class MainButton extends StatelessWidget {
               : Border.all(color: borderColor, width: 1),
         ),
         child: Center(
-          child: Text(
-            text,
-            style: TextStyle(
-                color: textColor ?? AppColors.white,
-                fontFamily: AppFontsFamily.alixadnria,
-                fontWeight: FontWeight.bold,
-                fontSize: 32.sp),
+          child: FittedBox(
+            child: Text(
+              text,
+              style: TextStyle(
+                  color: textColor ?? AppColors.white,
+                  fontFamily: AppFontsFamily.alixadnria,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 32.sp),
+            ),
           ),
         ),
       ).pOnly(bottom: bottomPadding ?? 20.h),
